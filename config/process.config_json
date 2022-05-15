@@ -1,0 +1,79 @@
+{
+	"s3_bucket_in": "/Users/riley/git/EIM/eim-xls-ingest/data/",
+	"s3_bucket_in_file": "BIL Data Report_02-18-22 v12.xlsx",
+	"s3_bucket_out": "/Users/riley/git/EIM/eim-xls-ingest/data_out/",
+	"processing": [{
+			"table_name": "Contractor Point of Contact",
+			"skiprows": 3,
+			"nbrofdatarows": 4,
+			"nbr_cells_merged_for_column": 3,
+			"sheet_name": "Tab 1- Contractor Info",
+			"source_type": "merged-special"
+		}, {
+			"table_name": "Business Information",
+			"skiprows": 8,
+			"nbrofdatarows": 10,
+			"nbr_cells_merged_for_column": 5,
+			"sheet_name": "Tab 1- Contractor Info",
+			"source_type": "merged-special"
+		}, {
+			"table_name": "Location of Performance",
+			"sheet_name": "Tab 1- Contractor Info",
+			"cols": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+			"skiprows": 21,
+			"source_type": "standard",
+			"converters": {
+				"ZIP": "zip_xxxxx_xxxx",
+				"Dollar Value": "round_2"
+			}
+		},
+		{
+			"table_name": "Buy American",
+			"sheet_name": "Tab 2 - Buy American",
+			"cols": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+			"skiprows": 3,
+			"source_type": "standard",
+			"converters": {
+				"JCN" : "nodecimal",
+				"Dollar Value": "round_2"
+			}
+		},
+		{
+			"table_name": "Product_Technology to be Replaced",
+			"sheet_name": "Tab 3- Energy Savings",
+			"cols": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+			"skiprows": 4,
+			"source_type": "standard",
+			"converters": {"JCN" : "nodecimal"}
+		},
+		{
+			"table_name": "Subcontracting",
+			"sheet_name": "Tab 4 - Subcontracting",
+			"cols": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+			"skiprows": 4,
+			"skipfooter": 2,
+			"source_type": "standard",
+			"converters": {
+				"JCN" : "nodecimal",
+				"SMALL BUSINESS CONCERN": "round_2",
+				"LARGE BUSINESS CONCERN": "round_2",
+				"SMALL DISADVANTAGE BUSINESS CONCERN":"round_2",
+				"WOMAN OWNED BUSINESS CONCERN":"round_2",
+				"SOCIALLY AND ECONOMICALLY DISADVANTAGED BUSINESS CONCERN (8a)":"round_2",
+				"SERVICE DISABLED VETERAN OWNED SMALL BUSINESS CONCERN":"round_2",
+				"HUZONE SMALL BUSINESS CONCERN":"round_2",
+				"VETERAN OWNED SMALL BUSINESS CONCERN":"round_2",
+				"HISTORICALLY BLACK COLLEGES AND UNIVERSITIES":"round_2"
+			}
+		},
+		{
+			"table_name": "Jobs Creation",
+			"sheet_name": "Tab 5 - Jobs Creation",
+			"cols": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+			"skiprows": 3,
+			"source_type": "standard",
+			"converters": {
+			"JCN" : "nodecimal"}
+		}
+	]
+}
